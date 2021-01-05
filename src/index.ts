@@ -47,10 +47,12 @@ function getRandomInt(min: number, max: number) {
       if (device) {
         const dimmer = getRandomArbitrary(40, 80);
         console.log("\tdimmer", dimmer);
-        device.lightList[0].setBrightness(dimmer, 0.3);
+        const transitionTime = getRandomArbitrary(0, 0.3);
+        console.log("\ttransitionTime", transitionTime);
+        device.lightList[0].setBrightness(dimmer, transitionTime);
       }
 
-      flicker(deviceId, getRandomInt(100, 1000));
+      flicker(deviceId, getRandomInt(100, 800));
     }, nextTimeout);
   };
 
